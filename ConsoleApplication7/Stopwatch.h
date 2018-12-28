@@ -34,11 +34,14 @@ public:
 	void pause();
 
 	// set & get intervals
-	int setInterval(int intervalCount, int intervalDuration, int loops);
+	
 	int getInterval();
-
+	int setInterval(int intervalCount, int intervalDuration, int loops);
 	void static run(int intervalDuration);
 
+	void static run(int intervalCount, int intervalDuration, int loops);
+
+	void static runPresets(int presets[]);
 	~Stopwatch();
 };
 

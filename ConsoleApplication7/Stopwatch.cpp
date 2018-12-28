@@ -56,6 +56,58 @@ void Stopwatch::run(int intervalDuration)
 	}
 }
 
+void Stopwatch::run(int intervalCount, int intervalDuration, int loops)
+{
+	intervalDuration = intervalDuration * 10;
+	int pause = 60;
+	
+	for (int i = 1; i <= loops;)
+	{
+		for (int j = 1; j <= intervalCount;)
+		{
+			for (int s = 1; s <= intervalDuration;)
+			{
+				//std::cout << s;
+				system("cls");
+				std::cout << "\t\tSetting: intervals " << intervalCount << "| interval duration " << intervalDuration << "sec | loops " << loops << std::endl;
+				std::cout << "\n\n\t\tLoop : " << i << " interval : " << j << " sec : " << s;
+				std::this_thread::sleep_for(std::chrono::seconds(1));
+				s++;
+			}
+			std::cout << "\a";
+			if (j == intervalCount)
+			{
+				std::cout << "\n\n\t\tPause for 60 seconds"<<std::endl;
+				for (int x = 1; x <= pause;)
+				{
+					std::cout << x;
+					std::this_thread::sleep_for(std::chrono::seconds(1));
+					if (x >= pause-2)
+					{
+						std::cout << "\a";
+						x++;
+					}
+					else
+					{
+						x++;
+					}
+				}
+				j++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+		i++;
+	}
+}
+
+void Stopwatch::runPresets(int presets[])
+{
+
+}
+
 Stopwatch::~Stopwatch()
 {
 }
