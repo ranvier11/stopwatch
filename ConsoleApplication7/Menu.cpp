@@ -62,7 +62,8 @@ void Menu::choice()
 			break;
  
 		case '2':
-			Stopwatch::run(10,3,2);
+			runInput();
+			//Stopwatch::run(10,3,2);
 			break;
 		case '3':
 			this->displayPresets(this->getPresets());
@@ -205,7 +206,7 @@ void Menu::displayPresets(vector<vector<int>> presets)
 	cout << "Press 2 for preset two:\n" << "intervals " << presetTwo[0] << " |interval duration " << presetTwo[1] << " |loops " << presetTwo[2] << endl;
 
 	//cin >> presetChoice;
-	while( !(cin>>presetChoice) || (presetChoice < 1  && presetChoice > 2))
+	while( !(cin>>presetChoice) || (presetChoice < 1  || presetChoice > 2))
 	{
 		cout << presetChoice;
 		cin.clear();
@@ -225,6 +226,41 @@ void Menu::displayPresets(vector<vector<int>> presets)
 		cout << "wrong input!" << endl;
 		cin >> presetChoice;
 	}
+}
+
+void Menu::runInput()
+{
+	int intervals =0;
+	int intervalDuration = 0;
+	int loops = 0;
+	vector<int> inputData;
+	system("cls");
+	cout << "\n\t\tSet number of intervals: ";
+	inputData.push_back(this->wrongInput(intervals, 0, 100));
+	cout << "\n\t\tSet interval duration x10 sec: ";
+	inputData.push_back(this->wrongInput(intervalDuration, 0, 11));
+	cout<< "\n\t\tSet number of loops: ";
+	inputData.push_back(this->wrongInput(loops, 0, 11));
+
+	/*for (vector<int>::iterator i = inputData.begin(); i != inputData.end(); ++i)
+	{
+		cout << *i;
+	}*/
+
+	Stopwatch::run(inputData[0], inputData[1], inputData[2]);
+	
+}
+
+int Menu::wrongInput(int input, int val1, int val2)
+{
+	while (!(cin >> input) || (input < val1 || input > val2))
+	{
+		cout << input;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "wrong input! please enter again \n";
+	}
+	return input;
 }
 
 Menu::~Menu()
