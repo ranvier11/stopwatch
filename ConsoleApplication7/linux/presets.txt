@@ -1,0 +1,2 @@
+intervals: 4 duration: 3 loops: 2
+intervals: 6 duration: 2 loops: 2
