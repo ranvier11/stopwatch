@@ -15,7 +15,7 @@ Menu::Menu()
 }
 
 // array of menu choices
-string menuItems[] = {"Start simple stopwatch", "Set intervals and start", "Use preset 1", "Use preset 2", "Quit"};
+string menuItems[] = {"Start simple stopwatch", "Set intervals and start", "Use presets", "Quit"};
 
 // using pointer to get menuItems array in a static method dispaly()  
 string* menuItemsPtr = menuItems;
@@ -61,19 +61,18 @@ void Menu::choice()
 			Stopwatch::run(0);
 			break;
  
+			// run with user input values
 		case '2':
 			runInput();
-			//Stopwatch::run(10,3,2);
 			break;
+
+			// run with presets 
 		case '3':
 			this->displayPresets(this->getPresets());
 			break;
-		case '4':
-			cout << "enter 4";
-			break;
-
+			
 			// throw exception to exit, catch in main()
-		case '5':
+		case '4':
 			throw 0;
 			//break;
 
@@ -186,6 +185,7 @@ vector<vector<int>> Menu::getPresets()
 	return presetsVtr;
 }
 
+// display presets from presets.txt
 void Menu::displayPresets(vector<vector<int>> presets)
 {
 	char presetChoice;
@@ -201,12 +201,13 @@ void Menu::displayPresets(vector<vector<int>> presets)
 		presetTwo[i] = presets[1][i];
 		i++;
 	}
-	system("cls");
-	cout << "Press 1 for preset one:\n" << "intervals " << presetOne[0] << " |interval duration " << presetOne[1] << " |loops " << presetOne[2] << endl;
-	cout << "Press 2 for preset two:\n" << "intervals " << presetTwo[0] << " |interval duration " << presetTwo[1] << " |loops " << presetTwo[2] << endl;
 
-	//cin >> presetChoice;
-	while( !(cin>>presetChoice) || (presetChoice < 1  || presetChoice > 2))
+	// presets menu
+	system("cls");
+	cout << "Press 1 for preset one:\n" << "intervals " << presetOne[0] << " |interval duration " << presetOne[1] * 10<< "s |loops " << presetOne[2] << endl;
+	cout << "Press 2 for preset two:\n" << "intervals " << presetTwo[0] << " |interval duration " << presetTwo[1] * 10<< "s |loops " << presetTwo[2] << endl;
+
+	while( !(cin>>presetChoice) || (presetChoice < 1  && presetChoice > 2))
 	{
 		cout << presetChoice;
 		cin.clear();
@@ -214,6 +215,7 @@ void Menu::displayPresets(vector<vector<int>> presets)
 		cout << "wrong input! please enter again \n";
 	}
 
+	// run witch choosen values
 	switch (presetChoice)
 	{
 	case '1':
@@ -228,6 +230,7 @@ void Menu::displayPresets(vector<vector<int>> presets)
 	}
 }
 
+// user input values function
 void Menu::runInput()
 {
 	int intervals =0;
@@ -235,6 +238,8 @@ void Menu::runInput()
 	int loops = 0;
 	vector<int> inputData;
 	system("cls");
+
+	// put values into vector with different validation intervals, duration, loops
 	cout << "\n\t\tSet number of intervals: ";
 	inputData.push_back(this->wrongInput(intervals, 0, 100));
 	cout << "\n\t\tSet interval duration x10 sec: ";
@@ -247,10 +252,11 @@ void Menu::runInput()
 		cout << *i;
 	}*/
 
+	// run stopwatch with given values
 	Stopwatch::run(inputData[0], inputData[1], inputData[2]);
-	
 }
 
+// return value for runInput(), after validation
 int Menu::wrongInput(int input, int val1, int val2)
 {
 	while (!(cin >> input) || (input < val1 || input > val2))

@@ -21,7 +21,7 @@ void Stopwatch::start(int intervalDuration)
 	this->run(intervalDuration);
 }
 
-
+// run only with duration
 void Stopwatch::run(int intervalDuration)
 {
 	int hour = 0, min = 0, sec = 0;
@@ -56,6 +56,7 @@ void Stopwatch::run(int intervalDuration)
 	}
 }
 
+// run with set of values
 void Stopwatch::run(int intervalCount, int intervalDuration, int loops)
 {
 	intervalDuration = intervalDuration * 10;
@@ -77,6 +78,7 @@ void Stopwatch::run(int intervalCount, int intervalDuration, int loops)
 			std::cout << "\a";
 			if (j == intervalCount)
 			{
+				// 60 s pause, with beep on 3 last seconds
 				std::cout << "\n\n\t\tPause for 60 seconds"<<std::endl;
 				for (int x = 1; x <= pause;)
 				{
