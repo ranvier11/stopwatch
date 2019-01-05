@@ -4,7 +4,7 @@
 class Menu
 {
 private:
-	std::string menuItems;
+	
 public:
 	Menu();
 

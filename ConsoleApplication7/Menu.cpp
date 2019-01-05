@@ -58,7 +58,7 @@ void Menu::choice()
 		{
 			// runs simple stopwatch, no beep
 		case '1':
-			Stopwatch::run(0);
+			//Stopwatch::run(0);
 			break;
  
 			// run with user input values
@@ -126,11 +126,11 @@ vector<vector<int>> Menu::getPresets()
 	//array <int, 2>presets[2][3];
 
 	ifstream file;
+	//file.open("presets2.txt", std::ifstream::in);
 	string text;
 
-	file.open("presets.txt");
 
-	if (file.good())
+	if (file)
 	{
 		// for array rows
 		int i = 0;
@@ -219,10 +219,10 @@ void Menu::displayPresets(vector<vector<int>> presets)
 	switch (presetChoice)
 	{
 	case '1':
-		Stopwatch::run(presetOne[0], presetOne[1], presetOne[2]);
+		//Stopwatch::run(presetOne[0], presetOne[1], presetOne[2]);
 		break;
 	case '2':
-		Stopwatch::run(presetTwo[0], presetTwo[1], presetTwo[2]);
+		//Stopwatch::run(presetTwo[0], presetTwo[1], presetTwo[2]);
 		break;
 	default:
 		cout << "wrong input!" << endl;
@@ -253,7 +253,7 @@ void Menu::runInput()
 	}*/
 
 	// run stopwatch with given values
-	Stopwatch::run(inputData[0], inputData[1], inputData[2]);
+	//Stopwatch::run(inputData[0], inputData[1], inputData[2]);
 }
 
 // return value for runInput(), after validation

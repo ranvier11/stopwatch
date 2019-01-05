@@ -152,20 +152,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="LinuxOutput.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NewMenu.h" />
+    <ClInclude Include="Output.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Preset.h" />
     <ClInclude Include="Stopwatch.h" />
+    <ClInclude Include="WindowsOutput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication7.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="LinuxOutput.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NewMenu.cpp" />
+    <ClCompile Include="Output.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Preset.cpp" />
     <ClCompile Include="Stopwatch.cpp" />
+    <ClCompile Include="WindowsOutput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

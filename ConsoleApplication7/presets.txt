@@ -1,2 +1,3 @@
-intervals: 4 duration: 3 loops: 2
-intervals: 6 duration: 2 loops: 2
+2 2 3
+3 4 5
+3 4 6

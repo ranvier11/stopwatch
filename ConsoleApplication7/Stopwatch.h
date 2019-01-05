@@ -1,5 +1,9 @@
 #pragma once
+#include "Output.h"
+#include "WindowsOutput.h"
+#include "Preset.h"
 #include <chrono>
+#include <vector>
 
 class Stopwatch
 {
@@ -22,13 +26,8 @@ private:
 
 
 public:
-	Stopwatch();
 
 	int interval[3];
-
-	// starts and restarts clock
-	void start();
-	void start(int intervalDuration);
 
 	// stops stopwatch using current time
 	void pause();
@@ -37,11 +36,10 @@ public:
 	
 	int getInterval();
 	int setInterval(int intervalCount, int intervalDuration, int loops);
-	void static run(int intervalDuration);
+	void static run(int intervalDuration, Output * output);
 
-	void static run(int intervalCount, int intervalDuration, int loops);
+	void static run(int intervalCount, int intervalDuration, int loops, Output * output);
 
-	void static runPresets(int presets[]);
-	~Stopwatch();
+	void static runPresets(int presetChoice, std::vector<presetStruct> presetVector, Output * output);
 };
 
