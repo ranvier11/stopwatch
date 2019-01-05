@@ -4,9 +4,9 @@
 #include "Input.h"
 #include <string>
 #include <vector>
-#include <iostream>
+//#include <iostream>
 
-
+//pokazuje menu 
 void NewMenu::showMenu(std::vector<std::string> menuItems)
 {
 	int fieldNumber = 1;
@@ -22,12 +22,14 @@ void NewMenu::showMenu(std::vector<std::string> menuItems)
 	Output::displayText("\n\tEnter number: ");
 }
 
+//przyjmuje wybór uzytkownika
 int NewMenu::getChoice()
 {
 	int itemNumber = Input::input();
 	return itemNumber;
 }
 
+//menu do ustawien uzykownika, switch by kontrolowaæ wyswietlanie, na zmiane z przyjmowaniem danych od uzytkownika
 void NewMenu::settingsMenu(int x)
 {
 	switch (x)
@@ -47,16 +49,14 @@ void NewMenu::settingsMenu(int x)
 	}
 }
 
-
+//wyœwietla zawartoœæ vectora ze struct preset
 void NewMenu::presetsMenu(std::vector<presetStruct> presets)
 {
-	std::vector<int> numbersForInput;
 	int i = 1;
 
 	for (const auto& item : presets)
 	{
 		Output::displayPreset(i, item.intervals, item.intervalDuration, item.loops);
-		numbersForInput.push_back(i);
 		++i;
 	}
 
