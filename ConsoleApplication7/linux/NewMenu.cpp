@@ -22,14 +22,14 @@ void NewMenu::showMenu(std::vector<std::string> menuItems)
 	Output::displayText("\n\tEnter number: ");
 }
 
-//przyjmuje wybór uzytkownika
+//przyjmuje wybÃ³r uzytkownika
 int NewMenu::getChoice()
 {
 	int itemNumber = Input::input();
 	return itemNumber;
 }
 
-//menu do ustawien uzykownika, switch by kontrolowaæ wyswietlanie, na zmiane z przyjmowaniem danych od uzytkownika
+//menu do ustawien uzykownika, switch by kontrolowaÃ¦ wyswietlanie, na zmiane z przyjmowaniem danych od uzytkownika
 void NewMenu::settingsMenu(int x)
 {
 	switch (x)
@@ -49,7 +49,7 @@ void NewMenu::settingsMenu(int x)
 	}
 }
 
-//wyœwietla zawartoœæ vectora ze struct preset
+//wyÂœwietla zawartoÂœÃ¦ vectora ze struct preset
 void NewMenu::presetsMenu(std::vector<presetStruct> presets)
 {
 	int i = 1;

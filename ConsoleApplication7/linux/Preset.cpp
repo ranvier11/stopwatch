@@ -6,8 +6,8 @@
 #include <sstream>
 #include <vector>
 
-//odczytuje ustawienia z pliku (zapis typu 2 4 6, 4 5 2), ka¿da linia ³adowana w while do stream, dalej do struct temp, temp do vector. struct temp jest incjalizowana
-//na poczatku pêtli (b³¹d? powinienem j¹ usuwaæ na koniec?). funkcja zwraca vector ze struct zawieraj¹cymi dane do uruchomienia stopwatch.
+//odczytuje ustawienia z pliku (zapis typu 2 4 6, 4 5 2), kaÂ¿da linia Â³adowana w while do stream, dalej do struct temp, temp do vector. struct temp jest incjalizowana
+//na poczatku pÃªtli (bÂ³Â¹d? powinienem jÂ¹ usuwaÃ¦ na koniec?). funkcja zwraca vector ze struct zawierajÂ¹cymi dane do uruchomienia stopwatch.
 std::vector<presetStruct> Preset::getPreset()
 {
 	std::vector<presetStruct> presetVector;

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Input.h"
 #include <iostream>
-
+#include <limits>
 
 int Input::input()
 {
