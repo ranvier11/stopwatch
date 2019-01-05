@@ -58,7 +58,7 @@ void Menu::choice()
 		{
 			// runs simple stopwatch, no beep
 		case '1':
-			Stopwatch::run(0);
+			//Stopwatch::run(0);
 			break;
  
 			// run with user input values
@@ -82,7 +82,7 @@ void Menu::choice()
 			cin.sync();
 			itemNumber = 0;
 			system("pause");
-			system("clear");
+			system("cls");
 			this->display();
 			this->choice();
 		}
@@ -105,7 +105,7 @@ void Menu::intervalSettings()
 	// number of loops
 	int loops=0;
 
-	system("clear");
+	system("cls");
 	cout << "Number of intervals from 1 to 10: ";
 	cin>>x;
 	cout << endl;
@@ -126,11 +126,11 @@ vector<vector<int>> Menu::getPresets()
 	//array <int, 2>presets[2][3];
 
 	ifstream file;
+	//file.open("presets2.txt", std::ifstream::in);
 	string text;
 
-	file.open("presets.txt");
 
-	if (file.good())
+	if (file)
 	{
 		// for array rows
 		int i = 0;
@@ -203,7 +203,7 @@ void Menu::displayPresets(vector<vector<int>> presets)
 	}
 
 	// presets menu
-	system("clear");
+	system("cls");
 	cout << "Press 1 for preset one:\n" << "intervals " << presetOne[0] << " |interval duration " << presetOne[1] * 10<< "s |loops " << presetOne[2] << endl;
 	cout << "Press 2 for preset two:\n" << "intervals " << presetTwo[0] << " |interval duration " << presetTwo[1] * 10<< "s |loops " << presetTwo[2] << endl;
 
@@ -219,10 +219,10 @@ void Menu::displayPresets(vector<vector<int>> presets)
 	switch (presetChoice)
 	{
 	case '1':
-		Stopwatch::run(presetOne[0], presetOne[1], presetOne[2]);
+		//Stopwatch::run(presetOne[0], presetOne[1], presetOne[2]);
 		break;
 	case '2':
-		Stopwatch::run(presetTwo[0], presetTwo[1], presetTwo[2]);
+		//Stopwatch::run(presetTwo[0], presetTwo[1], presetTwo[2]);
 		break;
 	default:
 		cout << "wrong input!" << endl;
@@ -237,7 +237,7 @@ void Menu::runInput()
 	int intervalDuration = 0;
 	int loops = 0;
 	vector<int> inputData;
-	system("clear");
+	system("cls");
 
 	// put values into vector with different validation intervals, duration, loops
 	cout << "\n\t\tSet number of intervals: ";
@@ -253,7 +253,7 @@ void Menu::runInput()
 	}*/
 
 	// run stopwatch with given values
-	Stopwatch::run(inputData[0], inputData[1], inputData[2]);
+	//Stopwatch::run(inputData[0], inputData[1], inputData[2]);
 }
 
 // return value for runInput(), after validation
